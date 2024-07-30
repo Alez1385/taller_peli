@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Peliculas</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <div class="container">
+        <form id="contactForm" method="post" action="../scripts/guardar_peli.php">
+            <h2>Formulario de peliculas</h2>
+            
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="dir">Director:</label>
+            <input type="text" id="dir" name="dir" required>
+            
+            <label for="gen">Genero:</label>
+            <input type="text" id="gen" name="gen" required>
+
+            <label for="nac">Nacionalidad:</label>
+            <input type="text" id="nac" name="nac" required>
+            
+            <label for="cat">Categoria:</label>
+            <input type="text" id="cat" name="cat" required>
+            
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" name="fecha" required>
+         
+            
+            
+            
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
