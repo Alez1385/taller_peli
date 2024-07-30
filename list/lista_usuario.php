@@ -8,30 +8,48 @@
 </head>
 <body>
     <div class="container">
-        <div class="user__cont">
-            <?php
-                include "../scripts/conexion.php";
-                $sql = "SELECT * FROM usuario";
-                $resultado = $conn->query($sql);
-                if ($resultado->num_rows > 0) {
-                    while ($row = $resultado->fetch_assoc()) {
-                        echo '<div class="user">';
-                        echo '<h2>' . $row['nom_usuario'] . '</h2>';
-                        echo '<p>' . $row['apellidos'] . '</p>';
-                        echo '<p>' . $row['telefono'] . '</p>';
-                        echo '<p>' . $row['tipo_doc'] . '</p>';
-                        echo '<p>' . $row['doc_usuario'] . '</p>';
-                        echo '<p>' . $row['Mail'] . '</p>';
-                        echo '<p>' . $row['fecha_nac'] . '</p>';
-                        echo '<img src="' . $row['Foto'] . '" alt="Foto de usuario">';
-                        echo '<button class="btn btn-primary" onclick="location.href=\'../scripts/eliminar_user.php?' . ">Eliminar</button>';
-                        echo '</div>';
-                    }
-                } else {
-                    echo '<p>No hay usuarios disponibles</p>';
-                }
-                $conn->close();
-            ?>
+        <h1>Lista de Usuarios</h1>
+        <div class="table-responsive">
+            <table class="user-table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Teléfono</th>
+                        <th>Tipo de Documento</th>
+                        <th>Documento</th>
+                        <th>Email</th>
+                        <th>Fecha de Nacimiento</th>
+                        <th>Foto</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        include "../scripts/conexion.php";
+                        $sql = "SELECT * FROM usuario";
+                        $resultado = $conn->query($sql);
+                        if ($resultado->num_rows > 0) {
+                            while ($row = $resultado->fetch_assoc()) {
+                                echo '<tr>';
+                                echo '<td>' . $row['nom_usuario'] . '</td>';
+                                echo '<td>' . $row['apellidos'] . '</td>';
+                                echo '<td>' . $row['telefono'] . '</td>';
+                                echo '<td>' . $row['tipo_doc'] . '</td>';
+                                echo '<td>' . $row['doc_usuario'] . '</td>';
+                                echo '<td>' . $row['Mail'] . '</td>';
+                                echo '<td>' . $row['fecha_nac'] . '</td>';
+                                echo '<td><img src="' . $row['Foto'] . '" alt="Foto de usuario" class="user-photo"></td>';
+                                echo '<td><button class="btn btn-danger" onclick="location.href=\'../scripts/eliminar_use.php?cod_usuario='. $row['cod_usuario']. '\'">Borrar</button></td>';
+                                echo '</tr>';
+                            }
+                        } else {
+                            echo '<tr><td colspan="9">No hay usuarios disponibles</td></tr>';
+                        }
+                        $conn->close();
+                    ?>
+                </tbody>
+            </table>
         </div>
     </div>
 </body>
