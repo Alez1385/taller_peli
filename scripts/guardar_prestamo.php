@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_copia = $_POST['id_copia'];
    
 
-    $sql = "INSERT INTO prestamo(fecha, cod_usuario, id_copia) 
+    $sql = "INSERT INTO prestamo(fecha_prest, cod_usuario, cod_copia) 
             VALUES ('$fecha', '$cod_usuario', '$id_copia')";
 
     if ($conn->query($sql) === TRUE) {

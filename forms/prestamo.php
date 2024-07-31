@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container">
-        <form id="contactForm" method="post" action="../scripts/guardar_peli.php">
+        <form id="contactForm" method="post" action="../scripts/guardar_prestamo.php">
             <h2>Formulario de Prestamo</h2>
             
             <label for="fecha">Fecha:</label>
